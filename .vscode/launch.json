@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "modecgs-train-debug",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/home/skwak/Workspace/Project_NeRF/MoDec-GS/train.py",
+            "args": "-s data/hypernerf/interp/interp_aleks-teapot/aleks-teapot --port 6018 --expname hypernerf/aleks-teapot --configs arguments/hypernerf/config_1.0.py",
+            "console": "integratedTerminal", 
+            "justMyCode": true, 
+            "logToFile": true,
+            "env": {
+                "PYTHONPATH": "/home/skwak/Workspace/Project_NeRF/MoDec-GS",
+            }
+        }, 
+    ]
+}
+

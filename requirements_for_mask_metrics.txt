@@ -1,0 +1,11 @@
+torch2jax
+lpips
+pytorch_msssim
+flax==0.5.1
+gin
+six
+gin-config==0.1.1
+ffmpeg
+tensorflow_graphics
+plotly
+timm
