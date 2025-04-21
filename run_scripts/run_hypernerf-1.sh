@@ -24,7 +24,7 @@ dataset=hypernerf
 dataset_config=hypernerf_half1
 
 colmap=0
-down_sample=1
+down_sample=0
 train=1
 render=1
 eval=1
