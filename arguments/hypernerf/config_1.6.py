@@ -30,7 +30,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [64, 64, 64, 100]
     },
-    multires_local = [1,2,4],
+    multires_local = [1,2],
         
     anchor_deform = True, 
     local_context_feature_deform = True,
@@ -52,7 +52,7 @@ ModelHiddenParams = dict(
     anchor_dynamics_position = True, # global dynamics
     anchor_dyamics_global_type = "mask", # mask or mul
     
-    anchor_dynamics_local_context_feature = False, # local dynamics #modified
+    anchor_dynamics_local_context_feature = True, # local dynamics
     anchor_dynamics_offset = False, #modified
     anchor_dynamics_scaling = False, #modified
     anchor_dynamics_local_type = "mul", # mask or mul       

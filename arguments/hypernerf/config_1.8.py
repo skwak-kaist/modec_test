@@ -6,7 +6,7 @@ ModelParams = dict(
     
 	# anchor dynamics
 	anchor_dynamics = True, 
-	anchor_dynamics_share = False, 
+	anchor_dynamics_share = False, #modified
 
 	# TIA
 	TIA_num_segments = 8,
@@ -30,7 +30,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [64, 64, 64, 100]
     },
-    multires_local = [1,2],
+    multires_local = [1,2,4],
         
     anchor_deform = True, 
     local_context_feature_deform = True,
@@ -49,12 +49,12 @@ ModelHiddenParams = dict(
     render_process = True, 
     
     # dynamics
-    anchor_dynamics_position = True, # global dynamics
+    anchor_dynamics_position = False, # global dynamics #modified
     anchor_dyamics_global_type = "mask", # mask or mul
     
-    anchor_dynamics_local_context_feature = True, # local dynamics
-    anchor_dynamics_offset = True,
-    anchor_dynamics_scaling = True,
+    anchor_dynamics_local_context_feature = True, # local dynamics #modified
+    anchor_dynamics_offset = True, #modified
+    anchor_dynamics_scaling = FalTruese, #modified
     anchor_dynamics_local_type = "mul", # mask or mul       
 )
 

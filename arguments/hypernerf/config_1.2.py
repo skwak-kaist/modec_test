@@ -30,7 +30,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [64, 64, 64, 100]
     },
-    multires_local = [1,2,4],
+    multires_local = [1,2],
         
     anchor_deform = True, 
     local_context_feature_deform = True,
@@ -38,9 +38,9 @@ ModelHiddenParams = dict(
     grid_scale_deform = True,
     
 	# regularizer for global kplanes
-    plane_tv_weight_global = 0.0,
-    time_smoothness_weight_global = 0.0,
-    l1_time_planes_global =  0.0,
+    plane_tv_weight_global = 0.0001,
+    time_smoothness_weight_global = 0.0005,
+    l1_time_planes_global =  0.00005,
 	# regularizer for local kplanes
     plane_tv_weight = 0.0002,
     time_smoothness_weight = 0.001,

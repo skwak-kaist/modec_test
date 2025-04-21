@@ -6,7 +6,7 @@ ModelParams = dict(
     
 	# anchor dynamics
 	anchor_dynamics = True, 
-	anchor_dynamics_share = False, 
+	anchor_dynamics_share = True, 
 
 	# TIA
 	TIA_num_segments = 8,
@@ -30,7 +30,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [64, 64, 64, 100]
     },
-    multires_local = [1,2],
+    multires_local = [1,2,4],
         
     anchor_deform = True, 
     local_context_feature_deform = True,

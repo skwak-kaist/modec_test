@@ -38,9 +38,9 @@ ModelHiddenParams = dict(
     grid_scale_deform = True,
     
 	# regularizer for global kplanes
-    plane_tv_weight_global = 0.0001,
-    time_smoothness_weight_global = 0.0005,
-    l1_time_planes_global =  0.00005,
+    plane_tv_weight_global = 0.0,
+    time_smoothness_weight_global = 0.0,
+    l1_time_planes_global =  0.0,
 	# regularizer for local kplanes
     plane_tv_weight = 0.0002,
     time_smoothness_weight = 0.001,

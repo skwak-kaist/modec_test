@@ -49,12 +49,12 @@ ModelHiddenParams = dict(
     render_process = True, 
     
     # dynamics
-    anchor_dynamics_position = False, # global dynamics #modified
+    anchor_dynamics_position = True, # global dynamics
     anchor_dyamics_global_type = "mask", # mask or mul
     
-    anchor_dynamics_local_context_feature = True, # local dynamics #modified
-    anchor_dynamics_offset = True, #modified
-    anchor_dynamics_scaling = FalTruese, #modified
+    anchor_dynamics_local_context_feature = False, # local dynamics #modified
+    anchor_dynamics_offset = False, #modified
+    anchor_dynamics_scaling = False, #modified
     anchor_dynamics_local_type = "mul", # mask or mul       
 )
 
