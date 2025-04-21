@@ -24,9 +24,10 @@ dataset=hypernerf
 dataset_config=hypernerf_half0
 
 colmap=0
+down_sample=1
 train=1
-render=0
-eval=0
+render=1
+eval=1
 #####################################
 
 source dataset_config/${dataset_config}.config
@@ -73,10 +74,16 @@ for scene in $scenes; do
 	then
 		echo "Running COLMAP"
 		bash colmap.sh data/${dataset}/${scene_path} ${dataset}
-
+	fi
+	
+	if [ $down_sample == 1 ]
+	then
 		echo "Downsampling the point cloud"
 		PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python scripts/downsample_point.py data/${dataset}/${scene_path}/colmap/dense/workspace/fused.ply data/${dataset}/${scene_path}/points3D_downsample2.ply
+	else
+		echo "Skip downsampling"
 	fi
+
 	
 	if [ $train == 1 ]
 	then
