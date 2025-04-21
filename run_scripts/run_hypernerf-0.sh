@@ -21,7 +21,7 @@ fi
 
 ########## set parameters ##########
 dataset=hypernerf
-dataset_config=hypernerf_all
+dataset_config=hypernerf_half0
 
 colmap=0
 train=1
