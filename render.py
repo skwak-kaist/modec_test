@@ -191,7 +191,7 @@ def render_set_canonical(model_path, name, iteration, views, gaussians, pipeline
 def render_sets(dataset : ModelParams, hyperparam, iteration : int, pipeline : PipelineParams, skip_train : bool, skip_test : bool, skip_video: bool, canonical_frame_render : bool):
     with torch.no_grad():
         # Create Gaussian model
-        gaussians = GaussianModel(hyper, dataset.feat_dim, dataset.n_offsets, dataset.voxel_size, 
+        gaussians = GaussianModel(hyperparam, dataset.feat_dim, dataset.n_offsets, dataset.voxel_size, 
                                   dataset.update_depth, dataset.update_init_factor, dataset.update_hierachy_factor, 
                                   dataset.use_feat_bank, dataset.appearance_dim, dataset.ratio, 
                                   dataset.add_opacity_dist, dataset.add_cov_dist, dataset.add_color_dist,
