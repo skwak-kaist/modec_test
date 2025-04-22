@@ -6,7 +6,7 @@ ModelParams = dict(
     
 	# anchor dynamics
 	anchor_dynamics = True, 
-	anchor_dynamics_share = False, 
+	anchor_dynamics_share = True, 
 
 	# TIA
 	TIA_num_segments = 4,
