@@ -25,21 +25,22 @@ dataset_config=hypernerf_half0
 
 colmap=0
 down_sample=0
-train=0
+train=1
 render=1
 eval=1
 #####################################
 
 source dataset_config/${dataset_config}.config
+cd ..
 
-config=config_${config_number}
+# config=config_${config_number}
+base_config=config_${config_number}
 output_path=${dataset}_${config_number}
 
-# rename the config as base.py -- 나중에
-# rm arguments/${dataset}/base.py
-# cp arguments/${dataset}/${base_config}.py arguments/${dataset}/base.py
+# rename the config as base.py
+rm arguments/${dataset}/base.py # remove the existing base.py
+cp arguments/${dataset}/${base_config}.py arguments/${dataset}/base.py # copy the new base.py
 
-cd ..
 
 if [ ! -d "output/${output_path}" ]; then
 	mkdir output/${output_path}
@@ -56,19 +57,18 @@ for scene in $scenes; do
 	echo "dataset" $dataset
 	echo "scene: "$scene
 	echo "scene path: "$scene_path
-	echo "config: "$config
 	echo "GPU" $GPU_id
-	# # 만약 ${scene}.py라는 config가 존재하면, 
-	# if [ -f arguments/${dataset}/${scene}.py ]; then
-	# 	echo "Using scene config: $scene.py"
-	# 	cp arguments/${dataset}/${scene}.py arguments/${dataset}/base.py
-	# 	config=$scene
-	# else
-	# 	echo "Using base config: $base_config.py"
-	# 	config=$base_config
-	# fi
-
+	
+	# 만약 ${scene}.py라는 config가 존재하면, 
+	if [ -f arguments/${dataset}/${scene}.py ]; then
+		echo "Using scene config: $scene.py with base config $base_config"
+		config=${scene}
+	else
+		echo "Using base config: $base_config.py"
+		config=${base_config}
+	fi
 	echo "########################################"
+
 
 	if [ $colmap == 1 ]
 	then
@@ -120,7 +120,5 @@ for scene in $scenes; do
 done
 
 python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset}
-
-#rm arguments/${dataset}/base.py
 
 

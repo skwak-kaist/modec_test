@@ -50,7 +50,7 @@ ModelHiddenParams = dict(
     
     # dynamics
     anchor_dynamics_position = True, # global dynamics
-    anchor_dyamics_global_type = "mask", # mask or mul
+    anchor_dyamics_global_type = "mul", # mask or mul
     
     anchor_dynamics_local_context_feature = True, # local dynamics
     anchor_dynamics_offset = True,
@@ -61,9 +61,9 @@ ModelHiddenParams = dict(
 
 OptimizationParams = dict(
     # dataloader=True,
-    iterations = 20000,
+    iterations = 30000,
     coarse_iterations = 3000,
-    batch_size = 2,
+    batch_size = 4,
    
     dynamics_loss = None,
     lambda_dynamics = 0.0001,
