@@ -325,7 +325,7 @@ def prefilter_voxel(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch
     return radii_pure > 0
     
 
-def render_ablation(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, scaling_modifier = 1.0, 
+def render_canonical(viewpoint_camera, pc : GaussianModel, pipe, bg_color : torch.Tensor, scaling_modifier = 1.0, 
            override_color = None, stage="fine", cam_type=None, visible_mask=None, retain_grad=False, canonical_times=None, still_camera=None):
     """
     variations of render function, it is used only for ablation study
