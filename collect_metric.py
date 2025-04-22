@@ -23,13 +23,13 @@ def get_folder_list(dataset):
         # interp_aleks-teapot chickchicken cut-lemon1 hand1 slice-banana torchocolate
         # misc_americano cross-hands1 espresso keyboard oven-mitts split-cookie tamping
         # vrig_3dprinter broom chicken peel-banana
-        folder_list = ["interp_aleks-teapot", "interp_chickchicken", "interp_cut-lemon1", "interp_hand1", "interp_slice-banana", "interp_torchocolate", 
-                       "misc_americano", "misc_cross-hands1", "misc_espresso", "misc_keyboard", "misc_oven-mitts", "misc_split-cookie", "misc_tamping", 
-                       "vrig_3dprinter", "vrig_broom", "vrig_chicken", "vrig_peel-banana"]
+        #folder_list = ["interp_aleks-teapot", "interp_chickchicken", "interp_cut-lemon1", "interp_hand1", "interp_slice-banana", "interp_torchocolate", 
+        #               "misc_americano", "misc_cross-hands1", "misc_espresso", "misc_keyboard", "misc_oven-mitts", "misc_split-cookie", "misc_tamping", 
+        #               "vrig_3dprinter", "vrig_broom", "vrig_chicken", "vrig_peel-banana"]
         
-        #folder_list = ["aleks-teapot", "chickchicken", "cut-lemon1", "hand1", "slice-banana", "torchocolate", 
-        #               "americano", "cross-hands1", "espresso", "keyboard", "oven-mitts", "split-cookie", "tamping", 
-        #               "3dprinter", "broom", "chicken", "peel-banana"]
+        folder_list = ["aleks-teapot", "chickchicken", "cut-lemon1", "hand1", "slice-banana", "torchocolate", 
+                       "americano", "cross-hands1", "espresso", "keyboard", "oven-mitts", "split-cookie", "tamping", 
+                       "3dprinter", "broom", "chicken", "peel-banana"]
     elif dataset == "dnerf":
         # bouncingballs hellwarrior hook jumpingjacks lego mutant standup trex
         folder_list = ["bouncingballs", "hellwarrior", "hook", "jumpingjacks", "lego", "mutant", "standup", "trex"]
