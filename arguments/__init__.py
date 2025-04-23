@@ -225,7 +225,7 @@ class OptimizationParams(ParamGroup):
         self.weight_constraint_after = 0.2
         self.weight_decay_iteration = 5000
         
-        self.batch_size=1
+        self.batch_size=4
         self.add_point=False
 
         ############################
