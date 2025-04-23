@@ -1,4 +1,4 @@
-__base_="base.py"
+_base_="./base.py"
 ModelParams=dict(
     kplanes_config_local = { 
      'grid_dimensions': 2,

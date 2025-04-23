@@ -28,9 +28,9 @@ ModelHiddenParams = dict(
      'grid_dimensions': 2,
      'input_coordinate_dim': 4,
      'output_coordinate_dim': 16,
-     'resolution': [64, 64, 64, 100]
+     'resolution': [64, 64, 64, 150]
     },
-    multires_local = [1,2],
+    multires_local = [1,2,4],
         
     anchor_deform = True, 
     local_context_feature_deform = True,
@@ -68,8 +68,8 @@ OptimizationParams = dict(
     dynamics_loss = None,
     lambda_dynamics = 0.0001,
     
-    min_opacity = 0.01,
-    success_threshold = 0.7, 
+    min_opacity = 0.005,
+    success_threshold = 0.8, 
     densify_grad_threshold = 0.0002,
             
 )

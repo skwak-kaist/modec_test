@@ -25,7 +25,7 @@ dataset_config=hypernerf_half1
 
 colmap=0
 down_sample=0
-train=1
+train=0
 render=1
 eval=1
 #####################################
@@ -99,6 +99,7 @@ for scene in $scenes; do
 
 	if [ $render == 1 ]
 	then
+	export OMP_NUM_THREADS=1
 		echo "Rendering the model"
 		PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python render.py --model_path "output/${output_path}/${scene}" --skip_train --configs arguments/${dataset}/${config}.py >> "output/${output_path}/training_log.txt"
 	else

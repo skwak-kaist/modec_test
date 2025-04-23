@@ -22,7 +22,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [32, 32, 32, 10]
     },
-    multires = [1,2],
+    multires_global = [1,2],
     # local kplanes
     kplanes_config_local = { 
      'grid_dimensions': 2,

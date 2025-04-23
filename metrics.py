@@ -11,7 +11,6 @@
 
 from pathlib import Path
 import os
-os.environ["OMP_NUM_THREADS"] = 1
 from PIL import Image
 import torch
 import torchvision.transforms.functional as tf

@@ -52,7 +52,7 @@ class ModelParams(ParamGroup):
         ############################
         self.feat_dim = 32
         self.n_offsets = 10
-        self.voxel_size =  0.001 # if voxel_size<=0, using 1nn dist
+        self.voxel_size =  0.01 # if voxel_size<=0, using 1nn dist
         self.update_depth = 3
         self.update_init_factor = 16
         self.update_hierachy_factor = 4
@@ -102,7 +102,7 @@ class ModelParams(ParamGroup):
         # temporal adjustment parameters (Sec 4.4)
         self.TIA = True
         self.TIA_num_segments = 8
-        self.TIA_step_size = 0.02
+        self.TIA_step_size = 0.01
         self.TIA_threshold = 1.5
 
         super().__init__(parser, "Loading Parameters", sentinel)
