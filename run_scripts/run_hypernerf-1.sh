@@ -21,11 +21,12 @@ fi
 
 ########## set parameters ##########
 dataset=hypernerf
-dataset_config=hypernerf_half1
+#dataset_config=hypernerf_half1
+dataset_config=hypernerf_temp1
 
 colmap=0
 down_sample=0
-train=0
+train=1
 render=1
 eval=1
 #####################################
