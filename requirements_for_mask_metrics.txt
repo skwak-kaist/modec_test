@@ -9,3 +9,4 @@ ffmpeg
 tensorflow_graphics
 plotly
 timm
+opencv-python

@@ -109,7 +109,7 @@ for scene in $scenes; do
 	if [ $eval == 1 ]
 	then
 		echo "Evaluating the model"
-		PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python metrics.py --model_path "output/${output_path}/${scene}" >> "output/${output_path}/training_log.txt"
+		PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python metrics.py --model_path "output/${output_path}/${scene}" >> "output/${output_path}/training_log.txt"		
 	else
 		echo "Skip evaluation"
 	fi
@@ -119,7 +119,7 @@ for scene in $scenes; do
 
 done
 
-python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset}
+python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset} --mask 1
 
 #rm arguments/${dataset}/base.py
 
