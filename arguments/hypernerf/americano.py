@@ -7,6 +7,6 @@ OptimizationParams = dict(
     # dataloader=True,
     iterations = 14000,
     batch_size = 2,
-    densify_grad_threshold = 0.002,
+    densify_grad_threshold = 0.005,
     min_opacity = 0.005,
     )

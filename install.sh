@@ -6,7 +6,7 @@ set -e
 env_name=modecgs
 echo "Installing MoDec-GS in conda environment:" $env_name
 
-bash setup_vcm_env.sh $env_name
+bash setup_modec_env.sh $env_name
 
 # activate vcm_decoder environment
 eval "$(conda shell.bash hook)"
