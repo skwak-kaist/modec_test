@@ -24,7 +24,7 @@ dataset=panoptic_sports
 dataset_config=panoptic_sports_all
 
 colmap=0
-down_sample=1
+down_sample=0
 train=1
 render=1
 eval=1
