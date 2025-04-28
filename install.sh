@@ -23,13 +23,5 @@ echo "Installing submodules"
 pip install -e submodules/depth-diff-gaussian-rasterization
 pip install -e submodules/simple-knn
 
-echo "Install is complete. You can now run MoDec-Gs. Do you want to install additional packages for mask metric? (y/n)"
-read install_mask_metric
-
-if [ "$install_mask_metric" == "y" ]; then
-    echo "Installing additional packages for mask metric"
-    pip install -r requirements_for_mask_metrics.txt
-else
-    echo "Skipping additional packages for mask metric"
-fi
+echo "Install is complete"
 

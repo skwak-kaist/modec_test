@@ -6,4 +6,5 @@ ModelParams=dict(
 OptimizationParams = dict(
     iterations = 14000,
     min_opacity = 0.005,
+    densify_grad_threshold = 0.002,
     )

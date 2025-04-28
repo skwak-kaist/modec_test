@@ -6,11 +6,11 @@ ModelParams = dict(
     
 	# anchor dynamics
 	anchor_dynamics = True, 
-	anchor_dynamics_share = True, 
+	anchor_dynamics_share = False, 
 
 	# TIA
 	TIA_num_segments = 8,
-	TIA_step_size = 0.02,
+	TIA_step_size = 0.01,
 	TIA_threshold = 1.5,
 )
 
@@ -22,7 +22,7 @@ ModelHiddenParams = dict(
      'output_coordinate_dim': 16,
      'resolution': [32, 32, 32, 10]
     },
-    multires = [1,2],
+    multires_global = [1,2],
     # local kplanes
     kplanes_config_local = { 
      'grid_dimensions': 2,
@@ -38,9 +38,9 @@ ModelHiddenParams = dict(
     grid_scale_deform = True,
     
 	# regularizer for global kplanes
-    plane_tv_weight_global = 0.0,
-    time_smoothness_weight_global = 0.0,
-    l1_time_planes_global =  0.0,
+    plane_tv_weight_global = 0.0001,
+    time_smoothness_weight_global = 0.0005,
+    l1_time_planes_global =  0.00005,
 	# regularizer for local kplanes
     plane_tv_weight = 0.0002,
     time_smoothness_weight = 0.001,
@@ -50,7 +50,7 @@ ModelHiddenParams = dict(
     
     # dynamics
     anchor_dynamics_position = True, # global dynamics
-    anchor_dyamics_global_type = "mask", # mask or mul
+    anchor_dyamics_global_type = "mul", # mask or mul
     
     anchor_dynamics_local_context_feature = True, # local dynamics
     anchor_dynamics_offset = True,
@@ -61,9 +61,9 @@ ModelHiddenParams = dict(
 
 OptimizationParams = dict(
     # dataloader=True,
-    iterations = 20000,
+    iterations = 30000,
     coarse_iterations = 3000,
-    batch_size = 2,
+    batch_size = 4,
    
     dynamics_loss = None,
     lambda_dynamics = 0.0001,
