@@ -21,8 +21,7 @@ fi
 
 ########## set parameters ##########
 dataset=hypernerf
-#dataset_config=hypernerf_half0
-dataset_config=hypernerf_temp0
+dataset_config=hypernerf_half0
 
 colmap=0
 down_sample=0
@@ -60,7 +59,6 @@ for scene in $scenes; do
 	echo "scene path: "$scene_path
 	echo "GPU" $GPU_id
 	
-	# 만약 ${scene}.py라는 config가 존재하면, 
 	if [ -f arguments/${dataset}/${scene}.py ]; then
 		echo "Using scene config: $scene.py with base config $base_config"
 		config=${scene}

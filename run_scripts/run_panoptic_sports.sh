@@ -19,23 +19,52 @@ if [ -z "$config_number" ]; then
 	config_number=1.0
 fi
 
+echo "You can run all or first half(h1) or second half(h2) or individual sequence(id) of the dataset."
+read -p "Enter the running sequence range (all or h1 or h2 or id, default: all): " running_sequence
+if [ -z "$running_sequence" ]; then
+	running_sequence="all"
+fi
+
 ########## set parameters ##########
 dataset=panoptic_sports
 dataset_config=panoptic_sports_all
 
 colmap=0
 down_sample=0
-train=1
-render=1
-eval=1
+train=0
+render=0
+eval=0
 #####################################
 
 source dataset_config/${dataset_config}.config
+cd ..
 
-config=config_${config_number}
+if [ "$running_sequence" == "h1" ]; then
+	scenes=$(echo $scenes | cut -d' ' -f1-3)
+	scnen_paths=$(echo $scnen_paths | cut -d' ' -f1-3)
+elif [ "$running_sequence" == "h2" ]; then
+	scenes=$(echo $scenes | cut -d' ' -f4-6)
+	scnen_paths=$(echo $scnen_paths | cut -d' ' -f4-6)
+elif [ "$running_sequence" == "id" ]; then
+	read -p "Enter the index of the scene (0~5, default: 0): " seq_idx
+	if [ -z "$seq_idx" ]; then
+		seq_idx=0
+	fi
+	scenes=$(echo $scenes | cut -d' ' -f$((seq_idx+1)))
+	scnen_paths=$(echo $scnen_paths | cut -d' ' -f$((seq_idx+1)))
+else
+	echo "Running all scenes"
+fi
+
+echo "Running sequence: $scenes"
+
+base_config=config_${config_number}
 output_path=${dataset}_${config_number}
 
-cd ..
+if [ -f arguments/${dataset}/base.py ]; then
+	rm arguments/${dataset}/base.py
+fi
+cp arguments/${dataset}/${base_config}.py arguments/${dataset}/base.py # copy the new base.py
 
 if [ ! -d "output/${output_path}" ]; then
 	mkdir output/${output_path}
@@ -54,6 +83,14 @@ for scene in $scenes; do
 	echo "scene path: "$scene_path
 	echo "config: "$config
 	echo "GPU" $GPU_id
+	
+	if [ -f arguments/${dataset}/${scene}.py ]; then
+		echo "Using scene config: $scene.py with base config $base_config"
+		config=${scene}
+	else
+		echo "Using base config: $base_config.py"
+		config=${base_config}
+	fi
 
 	echo "########################################"
 
@@ -97,16 +134,19 @@ for scene in $scenes; do
 	then
 		echo "Evaluating the model"
 		PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python metrics.py --model_path "output/${output_path}/${scene}" >> "output/${output_path}/training_log.txt"		
+		# Please note that the mask metric should be installed from 'dycheck' repository
+		# PYTHONPATH='.' CUDA_VISIBLE_DEVICES=$GPU_id python metrics_masked.py --model_path "output/${output_path}/${scene}" --data_path data/dycheck/${scene} >> "output/${output_path}/training_log.txt"	
+
 	else
 		echo "Skip evaluation"
 	fi
 
-	# idx +1
 	idx=$(($idx + 1))
 
 done
 
 python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset} --mask 1
 
+#rm arguments/${dataset}/base.py
 
 
