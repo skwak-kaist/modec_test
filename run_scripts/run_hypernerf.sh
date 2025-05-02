@@ -31,9 +31,9 @@ dataset_config=hypernerf_all
 
 colmap=0
 down_sample=0
-train=0
-render=0
-eval=0
+train=1
+render=1
+eval=1
 #####################################
 
 source dataset_config/${dataset_config}.config
