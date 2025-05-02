@@ -21,7 +21,7 @@ fi
 
 ########## set parameters ##########
 dataset=panoptic_sports
-dataset_config=panoptic_sports_all
+dataset_config=panoptic_sports_t0
 
 colmap=0
 down_sample=0

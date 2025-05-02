@@ -21,7 +21,7 @@ fi
 
 ########## set parameters ##########
 dataset=panoptic_sports
-dataset_config=panoptic_sports_all
+dataset_config=panoptic_sports_t1
 
 colmap=0
 down_sample=0
@@ -54,6 +54,7 @@ for scene in $scenes; do
 	echo "scene path: "$scene_path
 	echo "config: "$config
 	echo "GPU" $GPU_id
+
 
 	echo "########################################"
 
@@ -108,5 +109,6 @@ done
 
 python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset} --mask 1
 
+#rm arguments/${dataset}/base.py
 
 

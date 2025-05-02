@@ -21,7 +21,7 @@ fi
 
 ########## set parameters ##########
 dataset=panoptic_sports
-dataset_config=panoptic_sports_all
+dataset_config=panoptic_sports_t2
 
 colmap=0
 down_sample=0
@@ -34,6 +34,10 @@ source dataset_config/${dataset_config}.config
 
 config=config_${config_number}
 output_path=${dataset}_${config_number}
+
+# rename the config as base.py -- 나중에
+# rm arguments/${dataset}/base.py
+# cp arguments/${dataset}/${base_config}.py arguments/${dataset}/base.py
 
 cd ..
 
@@ -108,5 +112,6 @@ done
 
 python collect_metric.py --output_path "output/${output_path}" --dataset ${dataset} --mask 1
 
+#rm arguments/${dataset}/base.py
 
 
